@@ -3,5 +3,8 @@
 #Remove DS_store file from the project
 .DS_Store
 .DS_Store/
-books/.DS_Store
+training_repo/.DS_Store
 **/.DS_Store/
+#Remove data directory because it is not necessary
+.data/
+data/
