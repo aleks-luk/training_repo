@@ -11,8 +11,8 @@ common_offense_categories = df['Case Offense Category'].value_counts()
 
 # 3. What percentage of crimes are related to "Theft"?
 thefts_crime = df['Case Offense Category'] == 'Theft'
-thefts_crime_count = df[thefts_crime].shape[0]
-thefts_crime_percantage = round(thefts_crime_count / df.shape[0] * 100,2)
+thefts_crime_count = df[thefts_crime].count()
+thefts_crime_percantage = round(thefts_crime_count / df.count() * 100,2)
 print((thefts_crime_percantage))
 
 # 4. Which crime location (Case Location) appears most frequently?
@@ -116,6 +116,6 @@ median_crimes_main_street = df[df['Orlando Main Street Program Area'].notna()]['
 print(median_crimes_main_street)
 
 # 22. What are the three most frequently committed crimes in neighborhoods with the highest crime rates?
-top_neighborhoods = df['Orlando Neighborhoods'].value_counts().head(3).index
-top_crimes_in_neighborhoods = df[df['Orlando Neighborhoods'].isin(top_neighborhoods)]['Case Offense Type'].value_counts().head(3)
+top_neighborhoods = df['Orlando Neighborhoods'].value_counts().head(3)
+top_crimes_in_neighborhoods = df[df['Orlando Neighborhoods'].isin(top_neighborhoods.index)]['Case Offense Type'].value_counts().head(3)
 print(top_crimes_in_neighborhoods)
